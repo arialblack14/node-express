@@ -32,6 +32,15 @@ app.get('/dishes/:dishId', function(req, res, next) {
   res.end('Will send details of the dish: ' + req.params.dishId + ' to you!');
 });
 
+app.put('/dishes/:dishId', function(req, res, next) {
+  res.write('Updating the dish: ' + req.params.dishId + '\n');
+  res.end('Will update the dish: ' + req.body.name + ' with details: ' +req.body.description);
+});
+
+app.delete('/dishes/:dishId', function(req, res, next) {
+  res.end('Deleting dish: ' + req.params.dishId);
+});
+
 app.use(express.static(__dirname + '/public'));
 
 app.listen(port, hostname, function() {
